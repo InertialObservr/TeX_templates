@@ -1,0 +1,96 @@
+\documentclass[usenames,dvipsnames, 8pt]{beamer}
+\mode<presentation> {
+
+
+\usetheme{Madrid}
+\usefonttheme{serif}
+
+}
+
+
+
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{bm}
+\usepackage{amsmath, mathtools}
+\usepackage[compat=1.0.0]{tikz-feynman}
+
+\newcommand{\feyn}[1]{\begin{gathered}\begin{tikzpicture}\begin{feynman}[scale=1.5] #1 \end{feynman}\end{tikzpicture}\end{gathered}}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\title[Main Topic Here]{Main Topic } 
+
+\author{Your Name} 
+\institute[Your Institution] 
+{
+University of InertialObservr \\ 
+\medskip
+\textit{email} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Feynman Diagram}
+
+
+
+\begin{align*}
+%
+&m_h^2 = \\
+& \feyn{
+\node [blob] (center) at (0,0) ;
+\vertex (x1) at (-1,0) {$\phi$};
+\vertex (p1) at (1,0) {$\phi$};
+%
+%
+\diagram *{
+(x1) -- [scalar] (center) ;
+(center) -- [scalar] (p1);
+};
+}
+= 
+\feyn{
+%\node [blob] (center) at (0,0) ;
+\vertex (x1) at (-1,0) {$\phi$};
+\vertex (p1) at (0,0) {$\phi$};
+%
+%
+\diagram *{
+(x1) -- [scalar] (p1);
+};
+}
+\ \ + \ \ 
+\sum_\psi
+\feyn{
+%\node [blob] (center) at (0,0) ;
+\vertex (x1) at (-1,0) {$\phi$};
+\vertex (lv) at (-.3,0);
+\vertex (rv) at (.3,0);
+\vertex (p1) at (1,0) {$\phi$};
+%
+%
+\diagram *{
+(x1) -- [scalar] (lv);
+(lv) -- [half left, fermion,edge label'=\(\psi\)] (rv);
+(lv) -- [half right, anti fermion] (rv);
+(rv) -- [scalar] (p1);
+};
+}
+\\
+&= (m^0_h)^2 + \Delta m_h^2
+%
+\end{align*}
+
+
+
+\end{frame}
+
+
+\end{document}
