@@ -1,0 +1,112 @@
+\documentclass[usenames,dvipsnames, 8pt]{beamer}
+
+
+%width is width of sidebar
+\usetheme[width=2.1cm]{Berkeley}
+\usefonttheme{serif}
+
+
+
+%Define your school colors here
+\definecolor{yell}{RGB}{253,185,19}
+\definecolor{blu}{RGB}{0,62,120}
+
+
+%sets color theme for title slides
+\setbeamercolor{titlelike}{parent=structure,fg=yell, bg=blu}
+%set base color of theme
+\setbeamercolor{structure}{fg=blu}
+
+%set secondary color scheme for sidebar
+\setbeamercolor{palette sidebar secondary}{fg=yell,bg=blu}
+
+%school logo here
+\logo{\includegraphics[height=.8cm]{uci.png}\vspace{1pt}}
+
+
+\makeatletter
+\setbeamertemplate{sidebar left}{\insertverticalnavigation{\beamer@sidebarwidth}}
+\makeatother
+
+
+%customize fontsize and vertical spacing for section in sidebar
+\setbeamerfont{section in sidebar}{size=\fontsize{6}{6}\selectfont}
+
+%customize fontsize and vertical spacing for subsubsection in sidebar
+\setbeamerfont{subsubsection in sidebar}{size=\fontsize{2}{4}\selectfont}
+%watermark un-active subsubsections and highlight when active with its corresponding section
+\setbeamertemplate{subsubsection in sidebar shaded}[subsubsectionstyle=show]
+
+
+
+
+%remove hideous navigation bar
+\setbeamertemplate{navigation symbols}{}
+%remove large space-filling footer with just the frame number
+\setbeamertemplate{footline}[frame number]{}
+
+%extend sidebar all the way to floor of slide and customize placement of framenumber
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.99\paperwidth,ht=.1ex,dp=0ex,right]{frame number}%
+    \vskip0pt
+    \usebeamerfont{footline}\usebeamercolor[fg]{footline}
+    \insertframenumber/\inserttotalframenumber
+    \vskip.5ex
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\usepackage{amsmath, mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+
+\begin{document}
+
+\title{My Awesome Paper}
+\section{My Paper}
+\author{\large Author X$^1$ \and Author Y$^2$ \and Author Z$^3$}
+\date{}
+\begin{frame}
+\maketitle
+
+\vspace{-2.5cm}
+
+\begin{center}
+{\small {}$^1$ University of X}\\
+{\small {}$^2$ University of Y}\\
+{\small {}$^3$ University of Z}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\subsubsection{Introduction}
+\frametitle{Intro to My Awesome Paper}
+
+An equation for my awesome paper is
+
+\begin{align*}
+\mathcal{L} \supset &\sum^{3}\left(\bar{Q}_{L}^{i} \cdot H_{u}\right) Y^{(u)}_{ij} u_{R}^{j}+\left(\bar{Q}_{L}^{i} \cdot H_{d}\right) Y^{(d)}_{ij} d_{R}^{j}+h.c \nonumber \\
+&+\sum_{i, j=1}^{3}\left(\overline{\ell}_{L}^{i} \cdot H_{d}\right)Y^{(\ell)}_{ij} e_{R}^{j}+h . c .
+\end{align*}
+
+\ \\[.5cm]
+
+{\bf Awesome List of Froggatt-Nielsen Mechanism}\ \\[.3cm]
+\begin{enumerate}
+\item Impose new $U(1)_F$ symmetry, under which all matter content is charged
+\item Introduce SM singlet `flavon' field $S$ that breaks $U(1)_F$ spontaneously 
+\item Replace $Y_{ij}$ with $c_{ij}(S/\Lambda)^{n_{ij}}$ with $c_{ij}\sim \mathcal{O}(1)$
+\end{enumerate}  
+
+\ \\[.2cm]
+
+
+\end{frame}
+
+
+\end{document}
